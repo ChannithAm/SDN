@@ -3,14 +3,14 @@
 និយាយជារួមទៅ mininet អាចនិមិត្តកម្ម hosts, switches, links និង controllers នៅលើកុំព្យូទ័តែមួយ​ -គ្រាន់តែប្រើប្រាស់ software ជំនួស hardware។ សំរាប់លក្ខណៈរបស់ឧបករណ៍និមួយៗ វាមានភាពស្រដៀងគ្នាទៅនឹងឧបករណ៍ពិតៗតែម្ដង ហើយយើងមានភាពងាយស្រួលនឹងសាកល្បងបង្កើតទំរង់បណ្ដាញ (topo) ផ្សេងៗគ្នា។
 
 2. ភាពងាយស្រួលរបស់Mininet:
-  0. វាលឿន -ចាប់ផ្ដើមជាមួយនឹងបណ្ដាញសាមញ្ញជាមួយនឹងពេលវេលាយ៉ាងខ្លី។ មានន័យថាអ្នកអាចដំណើការ ឫក៏ debug យ៉ាងឆាប់រហ័ស។
-  1. បង្កើត custom topologies: switch 1, larger internet-like topologies, a data center, ឫក៏ទំរង់ណាមួយដែលអ្នកត្រូវការ។
-  2. ដំណើរការកម្មវិធីពិត: អ្វីដែលដំណើរការនៅលើប្រពន្ធតិបត្តិការ Linux គឺអាចធ្វើបាន។ ពីWeb servers ទៅកាន់ TCP window ដំឡើង Wireshark ដើម្បីវិភាគពត័មាន។
-  3. កែ packet forwarding: Switches​ របស់ Mininet គឺអាចសរសេរកម្មវិធី ដោយប្រើប្រាស់ Openflow protocol។
-  4. Minient គឺជាOpen source project ដែលអាចទាញយកកូដពី https://github.com/mininet ហើយអ្នកអាចកែប្រែ​(modify it), fix bugs, file issues/feature request, and submit patches/pull request។
-  5. ងាយស្រួលដំឡើង: អ្នកអាចដំឡើងវានៅលើកុំព្យូទ័ររបស់អ្នក។ ដោយប្រើប្រាស់ VM (Virtual Machine) ឫដំឡើងផ្ទាល់នៅលើកុំព្យូទ័រដែលមានប្រពន្ធប្រតិបត្តិការ Linux។
-  6. អាចយកប្រពន្ធ័ទាំងនេះមកអនុវត្តផ្ទាល់នៅលើបណ្ដាញជាក់ស្ដែង ដោយមិនចាំបាច់កែកូដនៅឡើយ។
-  7. Mininet មានផ្ដល់នៅ Python API ងាយប្រើប្រាស់ និងអាចពង្រីកបន្ថែម។
+  1. វាលឿន -ចាប់ផ្ដើមជាមួយនឹងបណ្ដាញសាមញ្ញជាមួយនឹងពេលវេលាយ៉ាងខ្លី។ មានន័យថាអ្នកអាចដំណើការ ឫក៏ debug យ៉ាងឆាប់រហ័ស។
+  2. បង្កើត custom topologies: switch 1, larger internet-like topologies, a data center, ឫក៏ទំរង់ណាមួយដែលអ្នកត្រូវការ។
+  3. ដំណើរការកម្មវិធីពិត: អ្វីដែលដំណើរការនៅលើប្រពន្ធតិបត្តិការ Linux គឺអាចធ្វើបាន។ ពីWeb servers ទៅកាន់ TCP window ដំឡើង Wireshark ដើម្បីវិភាគពត័មាន។
+  4. កែ packet forwarding: Switches​ របស់ Mininet គឺអាចសរសេរកម្មវិធី ដោយប្រើប្រាស់ Openflow protocol។
+  5. Minient គឺជាOpen source project ដែលអាចទាញយកកូដពី https://github.com/mininet ហើយអ្នកអាចកែប្រែ​(modify it), fix bugs, file issues/feature request, and submit patches/pull request។
+  6. ងាយស្រួលដំឡើង: អ្នកអាចដំឡើងវានៅលើកុំព្យូទ័ររបស់អ្នក។ ដោយប្រើប្រាស់ VM (Virtual Machine) ឫដំឡើងផ្ទាល់នៅលើកុំព្យូទ័រដែលមានប្រពន្ធប្រតិបត្តិការ Linux។
+  7. អាចយកប្រពន្ធ័ទាំងនេះមកអនុវត្តផ្ទាល់នៅលើបណ្ដាញជាក់ស្ដែង ដោយមិនចាំបាច់កែកូដនៅឡើយ។
+  8. Mininet មានផ្ដល់នៅ Python API ងាយប្រើប្រាស់ និងអាចពង្រីកបន្ថែម។
 3. ចំនុចខ្វះខាត ឫភាពមានកំណត់របស់ Mininet
 (មានពេលនឹងបន្ត...)
 4. របៀបដំឡើងMininet
