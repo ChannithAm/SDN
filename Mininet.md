@@ -70,7 +70,8 @@
   * To set the links bandwidth and delay timing
   
   net.addLink(h2, s1, bw=10, delay=50ms)
-``
+
+```
 
 - To exit from the command line interface (CLI)
 > Mininet> exit
