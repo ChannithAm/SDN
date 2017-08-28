@@ -51,7 +51,7 @@
 - To dump information about all nodes
 > Mininet> dump
 
--To test connectivity between hosts
+- To test connectivity between hosts
 > Mininet> h1 `ping` c1 h2
 
 - To separate terminals for node h1 and h2
