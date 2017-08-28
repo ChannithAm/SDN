@@ -35,6 +35,50 @@
   * សាកល្បងបង្កើតtopo
 > sudo mn --test pingall
 
+### <a namme="command">៥. The mininet command cheat sheet</a>
+- Runs the default minimal topology which include the Openflow kernel switch connected two hostss with the reference controller:
+> Mininet> sudo mn
+
+- To get the help
+> Mininet> help
+
+- To displays the nodes of the network:
+> Minint> nodes
+
+- To displays the links of a network
+> Mininet> net
+
+- To dump information about all nodes
+> Mininet> dump
+
+-To test connectivity between hosts
+> Mininet> h1 `ping` c1 h2
+
+- To separate terminals for node h1 and h2
+> Mininet> xterm h1 h2
+
+- To open the Wireshark network packet analyzer tool to monitor and analyse the behaviour of incoming and outgoing packets
+> Mininet> wireshark &
+
+- A few performance modeling commands in Mininet
+```
+  * The folowing command establishes the transmission controll link with the CPU limited hosts:
+
+  net = Mininet(link=TCLink, host=CPULimitedHost)
+  # កំណត់ link bandwidth និង add delay
+
+  * To set the links bandwidth and delay timing
+  
+  net.addLink(h2, s1, bw=10, delay=50ms)
+``
+
+- To exit from the command line interface (CLI)
+> Mininet> exit
+
+- To clean up the Mininet network configuration
+> Mininet> sudo mn -c
+
+
 
 
 
@@ -64,3 +108,5 @@
 [3] https://github.com/mininet/mininet/wiki/Introduction-to-Mininet
 
 [4] http://costiser.ro/2014/08/07/sdn-lesson-1-introduction-to-mininet/#.WYA_gCdLdxA
+
+[5] http://opensourceforu.com/2015/10/mininet-an-emulator-for-prototyping-large-network-topologies-on-a-single-machine/
