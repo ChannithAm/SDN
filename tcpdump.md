@@ -47,8 +47,8 @@ tcpdump
 
 បន្ទប់មកអ្នកចុច `ctrl + c` ដើម្បីបញ្ឈប់។ 
 
-*  ខាងក្រោមនេះជាកំណត់ចំនាំដែល​អ្នក​គួ​តែ​អាន​វាដើម្បីងាយយល់ពាក្យគន្លឹះមួយចំនួន:
-  * When tcpdump finishes capturing packets, it will report counts of:
+*  ខាងក្រោមនេះជាកំណត់ចំនាំដែល​អ្នក​គួ​តែ​អាន​វាដើម្បីងាយយល់ពាក្យ​គន្លឹះ​មួយ​ចំនួន:
+(When tcpdump finishes capturing packets, it will report counts of)
     * packets captured (this is the number of packets that tcpdump has received and processed);
     * packets received by filter (the meaning of this depends on the OS on which you're running tcpdump, and possibly on the way the OS was configured - if a filter was specified on the command line, on some OSes it counts packets regardless of whether they were matched by the filter expression and, even if they were matched by the filter expression, regardless of whether tcpdump has read and processed them yet, on other OSes it counts only packets that were matched by the filter expression regardless of whether tcpdump has read and processed them yet, and on other OSes it counts only packets that were matched by the filter expression and were processed by tcpdump);
     * packets dropped by kernel (this is the number of packets that were dropped, due to a lack of buffer space, by the packet capture mechanism in the OS on which tcpdump is running, if the OS reports that information to applications; if not, it will be reported as 0).
