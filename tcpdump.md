@@ -1,10 +1,17 @@
 ស្វែងយល់អំពី**tcpdump**
 ==========================
 
-## <a name="pre">១. មាតិការ</a>
+![tcpdump](/img/tcpdump.png)
 
+## <a name="pre">មាតិការ</a>
 
-## <a name="def">២. អ្វីទៅជាtcpdump?</a>
+* [១. អ្វីទៅជាtcpdump?](#def)
+* [២. ប្រវត្តិខ្លះៗនៃtcpdump](#history)
+* [៣. គោលបំនងនៃការប្រើប្រាស់tcpdump](#uses)
+* [៤. តំឡើង(install)](#install)
+* [៥. ការប្រើប្រាស់គំរូខ្លះៗ](#basic)
+
+## <a name="def">១. អ្វីទៅជាtcpdump?</a>
 
 - **tcpdump** គឺជាpacket analyzerសាមញ្ញមួយ ដែលដំណើរការដោយcommand line។ វាអាចអោយអ្នកប្រើប្រាស់បង្ហាញ TCP/IP ហើយនឹង packets ផ្សេងទៀតដែល​ត្រូវបានបញ្ជូន​ ឫក៏ទទួលពីnetworkដែលកុំព្យូទ័រនោះភ្ជាប់ជាមួយ។
 - **tcpdump**​ បង្កើតឡើងក្រោម BCD license។
@@ -29,31 +36,89 @@ sudo apt-get install tcpdump
 
 ## <a name="basic">៥. ការប្រើប្រាស់គំរូខ្លះៗ</a>
 
-- 
+```
+Note: រាល់ពេលអនុវត្តន៍អ្នកត្រូវមានសិទ្ធជា supperuser ($ sudo -i)។
+```
+
+- Capture packets
+```
+tcpdump
+```
+
+បន្ទប់មកអ្នកចុច `ctrl + c` ដើម្បីបញ្ឈប់។ ខាងក្រោមនេះជាកំណត់ចំនាំដែល​អ្នក​គួ​តែ​អាន​វាដើម្បីងាយយល់ពាក្យគន្លឹះមួយចំនួន:
+```
+
+
+    When tcpdump finishes capturing packets, it will report counts of:
+
+    packets captured (this is the number of packets that tcpdump has received and processed);
+
+    packets received by filter (the meaning of this depends on the OS on which you're running tcpdump, and possibly on the way the OS was configured - if a filter was specified on the command line, on some OSes it counts packets regardless of whether they were matched by the filter expression and, even if they were matched by the filter expression, regardless of whether tcpdump has read and processed them yet, on other OSes it counts only packets that were matched by the filter expression regardless of whether tcpdump has read and processed them yet, and on other OSes it counts only packets that were matched by the filter expression and were processed by tcpdump);
+
+    packets dropped by kernel (this is the number of packets that were dropped, due to a lack of buffer space, by the packet capture mechanism in the OS on which tcpdump is running, if the OS reports that information to applications; if not, it will be reported as 0).
+
+And there's a mailing list entry from 2009 explaining:
+
+    The "packets received by filter" number is the ps_recv number from a call to pcap_stats(); with BPF, that's the bs_recv number from the BIOCGSTATS ioctl. That count includes all packets that were handed to BPF; those packets might still be in a buffer that hasn't yet been read by libpcap (and thus not handed to tcpdump), or might be in a buffer that's been read by libpcap but not yet handed to tcpdump, so it can count packets that aren't reported as "captured".
+
+[source](https://unix.stackexchange.com/questions/29367/tcpdump-packets-captured-vs-packets-received-by-filter)
+```
+
+
+- Capture ទៅលើinterfaceជាក់លាក់ណាមួយ ដោយប្រើប្រាស់flag `-i` ហើយ​ខាងក្រោយវាអ្នកវាយបញ្ចូលinterfaceដែលអ្នកចង់capture, ឧទាហរណ៍interface eth0
+```
+tcpdump -i eth0
+```
+
+- ប្រើប្រាស់flag `-c` ដើម្បីកំណត់ចំនួនpacketsដែលអ្នកចង់capture ហើយបន្ថែម​ចំនួនpacketsនៅខាងក្រោយវា
+```
+tcpdump -i eth0 -c 20
+```
+
+- Print captured packets in ASCII, អ្នកប្រើប្រាស់flag `-A` ដើម្បីបង្ហាញpacketជាទំរង់កូដASCII
+```
+tcpdump -i eth0 -A
+```
+
+- បង្ហាញinterfaceដែលអ្នកអាចធ្វើការcaptureនៅលើកុំព្យូទ័ររបស់អ្នក
+```
+tcpdump -D
+```
+
+- Capture ហើយរក្សាpacketsនៅក្នុងfile, tcpdump​មានសម្ថភាពcapture​ ហើយរក្សាលទ្ធផលរបស់វានៅក្នុងfile ` .pcap` ដោយប្រើflag `-w` បន្ទាប់មក​ឈ្មោះfileដែលអ្នកចប់រក្សា
+```
+tcpdump -i eth0 -w file_name.pcap
+```
+
+- Caputure IP address packets: ប្រសិនបើអ្នកចង់capture network interface​របស់អ្នក ហើយវិភាគទៅលើIP address អ្នកអាចប្រើflag `-n ` នោះវានឹងឈប់បក​ប្រែ(translate)​ IP address ទៅជាHostnames ហើយនេះអាចជៀសវាង DNS lookups
+```
+tcpdump -n -i eth0
+```
+
+- capture only TCP packets ដោយបន្ថែម `tcp`នៅក្នុងcommand
+```
+tcpdump -i eth0 -c 20 -w tcpanalyze.pcap tcp
+```
+
+- Capture packets ពីportជាក់លាក់ណាមួយ, ឧបមាថាចង់captureនៅport​ ៨០
+```
+tcpdump -i eth0 port 80
+```
+
+- Captureដោយយកតែ source & destination IP
+
+Capture packets ពីIPដែលមានប្រភពមកពី IP:
+```
+tcpdump -i eth0 src 192.168.1.1
+```
+Capture packets ពីdestination IP:
+```
+tcpdump -i eth0 dst 192.168.1.1
+```
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-## <a name="ref">ឯកសារយោង</a>
+## <a name="ref">៦. ឯកសារយោង</a>
 
 [1] https://en.wikipedia.org/wiki/Tcpdump
 
