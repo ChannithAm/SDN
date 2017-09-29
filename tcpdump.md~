@@ -46,7 +46,6 @@ tcpdump
 ```
 
 បន្ទប់មកអ្នកចុច `ctrl + c` ដើម្បីបញ្ឈប់។ ខាងក្រោមនេះជាកំណត់ចំនាំដែល​អ្នក​គួ​តែ​អាន​វាដើម្បីងាយយល់ពាក្យគន្លឹះមួយចំនួន:
-----------------------------------------------------
 
 
     When tcpdump finishes capturing packets, it will report counts of:
@@ -62,7 +61,7 @@ And there's a mailing list entry from 2009 explaining:
     The "packets received by filter" number is the ps_recv number from a call to pcap_stats(); with BPF, that's the bs_recv number from the BIOCGSTATS ioctl. That count includes all packets that were handed to BPF; those packets might still be in a buffer that hasn't yet been read by libpcap (and thus not handed to tcpdump), or might be in a buffer that's been read by libpcap but not yet handed to tcpdump, so it can count packets that aren't reported as "captured".
 
 ![source](https://unix.stackexchange.com/questions/29367/tcpdump-packets-captured-vs-packets-received-by-filter)
--------------------------------
+
 
 - Capture ទៅលើinterfaceជាក់លាក់ណាមួយ ដោយប្រើប្រាស់flag `-i` ហើយ​ខាងក្រោយវាអ្នកវាយបញ្ចូលinterfaceដែលអ្នកចង់capture, ឧទាហរណ៍interface eth0
 ```
