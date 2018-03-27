@@ -14,7 +14,8 @@ h1 ---- s1 ---- h2
 	|
         h3
 
-![mininet](/img/topo0.png)
+
+![mininetTopo](/img/topo0.png)
 
 $ sudo mn --topo single,3 --switch ovsk --controller=remote
 
@@ -49,6 +50,7 @@ h1-eth0<->s1-eth1 (OK OK)
 h2-eth0<->s1-eth2 (OK OK) 
 h3-eth0<->s1-eth3 (OK OK) 
 ```
+
 - mininet> net
 
 ```
@@ -84,6 +86,7 @@ In open another terminal, and type the folow commands
 
 
 - sudo ovs-ofctl dump-flows s1
+
 ```
 NXST_FLOW reply (xid=0x4):
 ```
@@ -134,6 +137,8 @@ tcpdump -ne -i h2-eth0
 
 ```
 h1 ping h2
+```
+
 ```
 PING 10.0.0.2 (10.0.0.2) 56(84) bytes of data.
 From 10.0.0.1 icmp_seq=1 Destination Host Unreachable
@@ -278,4 +283,5 @@ $ sudo mn -c
 
 [1] http://mininet.org/walkthrough/
 
+[2] https://github.com/mininet/openflow-tutorial/wiki/Learn-Development-Tools
 
