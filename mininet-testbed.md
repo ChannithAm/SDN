@@ -89,7 +89,7 @@ c0
 
 # <a name="3">2. Flow table (ARP)</a>
 
-In open another terminal, and type the folow commands
+In another terminal, and type the folow commands
 
 ### <a name="4">2.1. Show flow entry in Flow table</a>
 
