@@ -1,0 +1,19 @@
+Controller:
+==========
+
+nith@cn-pc:~/SDN-lab/ryu$ ./ryu/app/sdnhub_apps/run_sdnhub_apps.sh
+
+Mininet:
+========
+
+sudo mn --controller=remote,ip=192.168.101.216 --topo=linear,3 --switch ovsk,protocols=OpenFlow13
+
+```
+The above command will create a virtual network consisting of 3 switches. Each switch will connect to the controller located at the specified IP, i.e. 127.0.0.1
+```
+
+sudo mn --controller=remote,ip=127.0.0.1 --mac --topo=linear,3 --switch ovsk,protocols=OpenFlow13
+
+```
+The above command has the "mac" option, which makes it easier to distinguish between Host MAC addresses and Switch MAC addresses.
+```

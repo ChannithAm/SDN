@@ -1,0 +1,37 @@
+LAB 1:
+======
+
+
+Mininet:
+--------
+
+- Create a virtual netork consisting of 3 switch. Each switch will connect to controller located at
+the specified IP, i.e IP=192.168.1.5
+
+```
+sudo mn --controller=remote,ip=192.168.1.5 --mac --topo=linear,3 --switch ovsk,protocols=OpenFlow13
+```
+
+
+RYU -controller:
+----------------
+
+```
+ryu-manager --verbose ./ryu/app/example_switch_13.py
+```
+
+
+```
+nith@cn-pc:~/SDN-lab/ryu/ryu/app$ ryu run gui_topology/gui_topology.py example_switch_13.py --observe-links
+```
+
+Open browser: http://192.168.1.5:8080/
+
+OR
+
+```
+nith@cn-pc:~/SDN-lab/ryu$ ./ryu/app/sdnhub_apps/run_sdnhub_apps.sh
+```
+
+
+
